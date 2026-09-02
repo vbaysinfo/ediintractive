@@ -1,5 +1,6 @@
 import type { LabContent } from "@/platform/types";
 import { blossoms6EnglishLabs } from "@/platform/data/labs-blossoms6-english";
+import { blossoms6EnglishLabsPart2 } from "@/platform/data/labs-blossoms6-english-part2";
 
 // Every lab below is expressed in the single reusable schema described in
 // the product spec. The same LabEngine component renders all of them —
@@ -255,7 +256,11 @@ const manualDemoLabs: LabContent[] = [
   },
 ];
 
-export const labs: LabContent[] = [...manualDemoLabs, ...blossoms6EnglishLabs];
+export const labs: LabContent[] = [
+  ...manualDemoLabs,
+  ...blossoms6EnglishLabs,
+  ...blossoms6EnglishLabsPart2,
+];
 
 export const getLab = (id: string) => labs.find((l) => l.id === id);
 export const labsForClass = (classNum: number, subject?: string) =>

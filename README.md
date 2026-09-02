@@ -68,15 +68,16 @@ npm run lint    # eslint
   - **Drag-to-Label** — `DragMatch.tsx` in label mode (labeling a diagram)
   - **Drag-to-Sort** — `DragSort.tsx` (classify items into 2+ category
     bins — e.g. sound classification, plant classification)
-- **Real textbook content** (`src/platform/data/labs-blossoms6-english.ts`)
-  — 12 labs generated from the actual Class 6 "Blossoms - 6" English
-  Reader (Units 1–5: Clever Tenali Ramakrishna, The Snake Catcher, Little
-  Hearts, What Can a Dollar and Eleven Cents Do?, At the Vegetable Shop —
-  plus the poem "The Coromandel Fishers"). Every word, meaning, sentence
-  order and classification is taken verbatim from the book's own Glossary,
-  Reading Comprehension and Vocabulary sections. More units get added the
-  same way as more of the book is provided — the schema and engine don't
-  change, only the data file grows.
+- **Real textbook content** (`src/platform/data/labs-blossoms6-english*.ts`)
+  — 20 labs generated from the complete Class 6 "Blossoms - 6" English
+  Reader, all 8 units: Clever Tenali Ramakrishna, The Snake Catcher,
+  Little Hearts, What Can a Dollar and Eleven Cents Do?, At the Vegetable
+  Shop, A Lesson for All, Dr. B.R. Ambedkar, and Where There Is a Will
+  There Is a Way — plus 3 of the book's poems (The Coromandel Fishers,
+  My Dependence, What Can a Little Chap Do?). Every word, meaning,
+  sentence order and classification is taken verbatim from the book's own
+  Glossary, Reading Comprehension and Vocabulary sections — nothing is
+  fabricated.
 - **Content Pipeline (PDF → Lab)** — a *simulated* pipeline at
   `/teacher/content-pipeline`: pick a subject/class/topic (a real file
   picker is there for the demo, but the PDF isn't actually parsed), watch
