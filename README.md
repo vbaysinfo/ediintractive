@@ -78,20 +78,21 @@ npm run lint    # eslint
   sentence order and classification is taken verbatim from the book's own
   Glossary, Reading Comprehension and Vocabulary sections — nothing is
   fabricated.
-- **Real Science content** (`src/platform/data/labs-science6*.ts`) — 25
-  labs from the Class 6 State Board Science textbook, Chapters 1-10: The
-  Food We Need, Knowing About Plants, Animals and Their Food, Water,
-  Materials - Separating Methods, Fun with Magnets, Let us Measure, How
-  Fabrics are Made, Organisms and Habitat, and Basic Electric Circuits.
-  Millet name matching, food-source and food-chain classification,
-  leaf-part labeling, the water cycle, states of matter, separation
-  methods (winnowing, filtration, crystallization, distillation,
-  sublimation), magnetic/non-magnetic sorting, unit-symbol matching,
-  natural/artificial fibre sorting, the cotton-to-fabric sequence,
-  biotic/abiotic and aquatic/terrestrial classification, pond-habitat
-  matching, and conductor/insulator sorting — all taken verbatim from the
-  book's own tables and activities. Chapters 11-12 (Shadows and Images,
-  Movement and Locomotion) get added the same way once provided.
+- **Real Science content** (`src/platform/data/labs-science6*.ts`) — the
+  **complete Class 6 State Board Science textbook, all 12 chapters**, 30
+  labs total: The Food We Need, Knowing About Plants, Animals and Their
+  Food, Water, Materials - Separating Methods, Fun with Magnets, Let us
+  Measure, How Fabrics are Made, Organisms and Habitat, Basic Electric
+  Circuits, Shadows - Images, and Movement and Locomotion. Millet name
+  matching, food-source and food-chain classification, leaf-part
+  labeling, the water cycle, states of matter, separation methods
+  (winnowing, filtration, crystallization, distillation, sublimation),
+  magnetic/non-magnetic sorting, unit-symbol matching, natural/artificial
+  fibre sorting, the cotton-to-fabric sequence, biotic/abiotic and
+  aquatic/terrestrial classification, pond-habitat matching,
+  conductor/insulator sorting, opaque/transparent/translucent
+  classification, joint-type matching, and limbs/no-limbs locomotion
+  sorting — all taken verbatim from the book's own tables and activities.
 - **Content Pipeline (PDF → Lab)** — a *simulated* pipeline at
   `/teacher/content-pipeline`: pick a subject/class/topic (a real file
   picker is there for the demo, but the PDF isn't actually parsed), watch
