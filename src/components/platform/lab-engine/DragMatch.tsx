@@ -73,6 +73,8 @@ export function DragMatch({
             const zoneId = combo.combo[1];
             const targetItem = lab.items.find((i) => i.id === combo.combo[0]);
             const filledWith = placed[zoneId];
+            const clueText = combo.zoneLabel;
+            const clueEmoji = combo.zoneEmoji ?? targetItem?.emoji;
             return (
               <DropZone
                 key={zoneId}
@@ -83,15 +85,22 @@ export function DragMatch({
                 className={errorZone === zoneId ? "p-animate-shake" : ""}
               >
                 {filledWith ? (
-                  <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="flex flex-col items-center">
-                    <span className="text-3xl">{targetItem?.emoji}</span>
-                    <span className="mt-1 text-[10px] font-bold text-[var(--p-success)]">
+                  <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="flex flex-col items-center px-1">
+                    <span className="text-3xl">{clueEmoji}</span>
+                    <span className="mt-1 text-center text-[10px] font-bold text-[var(--p-success)]">
                       {targetItem?.label}
                     </span>
                   </motion.div>
+                ) : clueText ? (
+                  <div className="flex flex-col items-center gap-1 px-1 text-center">
+                    <span className="text-xl">{clueEmoji ?? "📖"}</span>
+                    <span className="text-[10px] font-semibold leading-snug text-[var(--p-ink-soft)]">
+                      {clueText}
+                    </span>
+                  </div>
                 ) : (
                   <div className="flex flex-col items-center opacity-40">
-                    <span className="text-3xl">{targetItem?.emoji}</span>
+                    <span className="text-3xl">{clueEmoji}</span>
                     <span className="mt-1 text-[10px] font-bold text-[var(--p-muted)]">?</span>
                   </div>
                 )}

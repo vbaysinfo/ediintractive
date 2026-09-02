@@ -55,18 +55,28 @@ npm run lint    # eslint
 - **Super Admin console** — platform-wide stats, school onboarding form.
 - **The reusable Interactive Lab Engine** (`src/components/platform/
   lab-engine/`) — one engine, driven entirely by the JSON schema in
-  `src/platform/types.ts` (`LabContent`), renders all 6 seed labs across
-  Science, Maths, English, Telugu and Social Studies. All 5 interaction
-  types are implemented with real drag gestures (Framer Motion `drag` /
-  `Reorder`), instant visual + audio feedback, unlimited retries, and a
-  completion celebration with confetti, XP and badges:
+  `src/platform/types.ts` (`LabContent`). All 6 interaction types are
+  implemented with real drag gestures (Framer Motion `drag` / `Reorder`),
+  instant visual + audio feedback, unlimited retries, and a completion
+  celebration with confetti, XP and badges:
   - **Drag-Mix** — `DragMix.tsx` (Science: acid-base reactions)
   - **Drag-to-Count** — `DragCount.tsx` (Maths: counting into a basket)
-  - **Drag-to-Match** — `DragMatch.tsx` (English/Telugu vocabulary,
-    Social Studies states & capitals)
-  - **Drag-to-Sequence** — `DragSequence.tsx` (Social Studies: water cycle)
-  - **Drag-to-Label** — `DragMatch.tsx` in label mode (Science: parts of
-    a plant)
+  - **Drag-to-Match** — `DragMatch.tsx` (vocabulary/meaning matching, rhyme
+    matching, picture matching, states & capitals — supports either a
+    picture-style zone or a text "clue" zone via `LabCombo.zoneLabel`)
+  - **Drag-to-Sequence** — `DragSequence.tsx` (ordering events/steps)
+  - **Drag-to-Label** — `DragMatch.tsx` in label mode (labeling a diagram)
+  - **Drag-to-Sort** — `DragSort.tsx` (classify items into 2+ category
+    bins — e.g. sound classification, plant classification)
+- **Real textbook content** (`src/platform/data/labs-blossoms6-english.ts`)
+  — 12 labs generated from the actual Class 6 "Blossoms - 6" English
+  Reader (Units 1–5: Clever Tenali Ramakrishna, The Snake Catcher, Little
+  Hearts, What Can a Dollar and Eleven Cents Do?, At the Vegetable Shop —
+  plus the poem "The Coromandel Fishers"). Every word, meaning, sentence
+  order and classification is taken verbatim from the book's own Glossary,
+  Reading Comprehension and Vocabulary sections. More units get added the
+  same way as more of the book is provided — the schema and engine don't
+  change, only the data file grows.
 - **Content Pipeline (PDF → Lab)** — a *simulated* pipeline at
   `/teacher/content-pipeline`: pick a subject/class/topic (a real file
   picker is there for the demo, but the PDF isn't actually parsed), watch

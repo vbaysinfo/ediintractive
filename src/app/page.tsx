@@ -14,6 +14,7 @@ const interactionTypes = [
   { emoji: "🧩", label: "Drag-to-Match", desc: "Match words, letters or capitals to their pictures" },
   { emoji: "🔁", label: "Drag-to-Sequence", desc: "Order steps of a process, timeline or life cycle" },
   { emoji: "🏷️", label: "Drag-to-Label", desc: "Label the parts of a diagram" },
+  { emoji: "🗂️", label: "Drag-to-Sort", desc: "Classify words or objects into the right category" },
 ];
 
 export default function PlatformHome() {
@@ -82,7 +83,7 @@ export default function PlatformHome() {
             Upload a textbook PDF and the content pipeline slots topics into these same
             interactions — no custom UI per chapter.
           </p>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
             {interactionTypes.map((it) => (
               <PCard key={it.label} className="text-center">
                 <span className="text-3xl">{it.emoji}</span>

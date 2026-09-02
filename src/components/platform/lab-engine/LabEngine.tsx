@@ -7,6 +7,7 @@ import { DragMix } from "@/components/platform/lab-engine/DragMix";
 import { DragMatch } from "@/components/platform/lab-engine/DragMatch";
 import { DragCount } from "@/components/platform/lab-engine/DragCount";
 import { DragSequence } from "@/components/platform/lab-engine/DragSequence";
+import { DragSort } from "@/components/platform/lab-engine/DragSort";
 import { Quiz } from "@/components/platform/lab-engine/Quiz";
 import { Confetti } from "@/components/platform/lab-engine/Confetti";
 import { PBadgePill, PButton, PCard } from "@/components/platform/ui";
@@ -110,6 +111,16 @@ export function LabEngine({
     ),
     "drag-to-sequence": (
       <DragSequence
+        lab={lab}
+        onProgress={(d, t) => {
+          setDone(d);
+          setTotal(t);
+        }}
+        onComplete={handleInteractionComplete}
+      />
+    ),
+    "drag-to-sort": (
+      <DragSort
         lab={lab}
         onProgress={(d, t) => {
           setDone(d);

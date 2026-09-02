@@ -1,4 +1,5 @@
 import type { LabContent } from "@/platform/types";
+import { blossoms6EnglishLabs } from "@/platform/data/labs-blossoms6-english";
 
 // Every lab below is expressed in the single reusable schema described in
 // the product spec. The same LabEngine component renders all of them —
@@ -6,7 +7,7 @@ import type { LabContent } from "@/platform/types";
 // is exactly the shape a PDF-ingestion pipeline (see /teacher's
 // "Content Pipeline" tab) would produce automatically per topic.
 
-export const labs: LabContent[] = [
+const manualDemoLabs: LabContent[] = [
   {
     id: "sci-acid-base",
     subject: "Science",
@@ -253,6 +254,8 @@ export const labs: LabContent[] = [
     ],
   },
 ];
+
+export const labs: LabContent[] = [...manualDemoLabs, ...blossoms6EnglishLabs];
 
 export const getLab = (id: string) => labs.find((l) => l.id === id);
 export const labsForClass = (classNum: number, subject?: string) =>

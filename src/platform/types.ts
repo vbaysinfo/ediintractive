@@ -73,13 +73,25 @@ export type InteractionType =
   | "drag-to-count"
   | "drag-to-match"
   | "drag-to-sequence"
-  | "drag-to-label";
+  | "drag-to-label"
+  | "drag-to-sort";
+
+export interface SortBin {
+  id: string;
+  label: string;
+  emoji: string;
+}
 
 export interface LabCombo {
   combo: string[]; // item ids that must be combined/matched (order-insensitive unless noted)
   result: string; // human-readable outcome shown to the student
   detail?: string; // equation / fact / caption revealed on success
   points: number;
+  // drag-to-match only: override the drop zone's static clue (before it's
+  // filled) with text instead of the target item's own emoji/label — used
+  // when matching a word to a definition rather than to a picture.
+  zoneLabel?: string;
+  zoneEmoji?: string;
 }
 
 export interface LabItem {
@@ -109,9 +121,10 @@ export interface LabContent {
   targetLabel: string;
   targetEmoji: string;
   items: LabItem[];
-  correctCombos: LabCombo[]; // drag-mix / drag-to-match / drag-to-label
+  correctCombos: LabCombo[]; // drag-mix / drag-to-match / drag-to-label / drag-to-sort (combo = [itemId, binId])
   sequence?: string[]; // drag-to-sequence: correct order of item ids
   countTarget?: number; // drag-to-count: how many to drag in
+  bins?: SortBin[]; // drag-to-sort: the category bins items get classified into
   hints: { default: string; onWrong?: string };
   xp: number;
   estMinutes: number;
