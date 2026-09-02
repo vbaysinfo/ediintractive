@@ -1,6 +1,7 @@
 import type { LabContent } from "@/platform/types";
 import { blossoms6EnglishLabs } from "@/platform/data/labs-blossoms6-english";
 import { blossoms6EnglishLabsPart2 } from "@/platform/data/labs-blossoms6-english-part2";
+import { blossoms6StoryLabs } from "@/platform/data/labs-blossoms6-stories";
 import { science6Labs } from "@/platform/data/labs-science6";
 import { science6LabsPart2 } from "@/platform/data/labs-science6-part2";
 import { science6LabsPart3 } from "@/platform/data/labs-science6-part3";
@@ -263,6 +264,7 @@ export const labs: LabContent[] = [
   ...manualDemoLabs,
   ...blossoms6EnglishLabs,
   ...blossoms6EnglishLabsPart2,
+  ...blossoms6StoryLabs,
   ...science6Labs,
   ...science6LabsPart2,
   ...science6LabsPart3,

@@ -73,21 +73,25 @@ npm run lint    # eslint
     bins — e.g. sound classification, plant classification)
   - **Click-Match** — `ClickMatch.tsx` (tap an item, then tap its pair —
     a no-drag alternative to Drag-to-Match, same data shape)
-  - **Memory-Flip** — `MemoryFlip.tsx` (classic face-down memory/pairs
-    game with a CSS 3D card flip — reuses `correctCombos`, either real
-    item pairs or a word ↔ meaning-clue pair)
   - **Tap-Sequence** — `TapSequence.tsx` (tap cards into order one at a
     time, tap the last card to undo — a no-drag alternative to
     Drag-to-Sequence, same `sequence` data)
-- **Real textbook content** (`src/platform/data/labs-blossoms6-english*.ts`)
-  — 20 labs generated from the complete Class 6 "Blossoms - 6" English
-  Reader, all 8 units: Clever Tenali Ramakrishna, The Snake Catcher,
-  Little Hearts, What Can a Dollar and Eleven Cents Do?, At the Vegetable
-  Shop, A Lesson for All, Dr. B.R. Ambedkar, and Where There Is a Will
-  There Is a Way — plus 3 of the book's poems (The Coromandel Fishers,
-  My Dependence, What Can a Little Chap Do?). Every word, meaning,
-  sentence order and classification is taken verbatim from the book's own
-  Glossary, Reading Comprehension and Vocabulary sections — nothing is
+  - **Story Mode** — `StoryReader.tsx` (an illustrated, page-by-page
+    retelling of the real chapter story, with a tap-to-reveal word note
+    on each page and inline "what happens next?" checkpoints, ending in
+    the chapter's own reading-comprehension quiz)
+- **Real textbook content** (`src/platform/data/labs-blossoms6-english*.ts`,
+  `labs-blossoms6-stories.ts`) — 28 labs generated from the complete
+  Class 6 "Blossoms - 6" English Reader, all 8 units: Clever Tenali
+  Ramakrishna, The Snake Catcher, Little Hearts, What Can a Dollar and
+  Eleven Cents Do?, At the Vegetable Shop, A Lesson for All, Dr. B.R.
+  Ambedkar, and Where There Is a Will There Is a Way — plus 3 of the
+  book's poems (The Coromandel Fishers, My Dependence, What Can a Little
+  Chap Do?), and a Story Mode lab per unit retelling the real story
+  page-by-page. Every word, meaning, story line, sentence order and
+  classification is taken verbatim (or lightly paraphrased for length)
+  from the book's own story text, Glossary, Reading Comprehension and
+  Vocabulary sections — nothing is
   fabricated.
 - **Real Science content** (`src/platform/data/labs-science6*.ts`) — the
   **complete Class 6 State Board Science textbook, all 12 chapters**, 30

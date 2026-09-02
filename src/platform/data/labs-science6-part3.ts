@@ -167,7 +167,7 @@ export const science6LabsPart3: LabContent[] = [
     classNum: 6,
     chapter: "Chapter 12 · Movement and Locomotion",
     topic: "Muscles & Bones Vocabulary",
-    interactionType: "memory-flip",
+    interactionType: "click-match",
     description: "Match each word to its correct meaning.",
     targetLabel: "Meanings",
     targetEmoji: "📖",

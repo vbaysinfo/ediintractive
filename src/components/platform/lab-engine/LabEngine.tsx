@@ -9,8 +9,8 @@ import { DragCount } from "@/components/platform/lab-engine/DragCount";
 import { DragSequence } from "@/components/platform/lab-engine/DragSequence";
 import { DragSort } from "@/components/platform/lab-engine/DragSort";
 import { ClickMatch } from "@/components/platform/lab-engine/ClickMatch";
-import { MemoryFlip } from "@/components/platform/lab-engine/MemoryFlip";
 import { TapSequence } from "@/components/platform/lab-engine/TapSequence";
+import { StoryReader } from "@/components/platform/lab-engine/StoryReader";
 import { Quiz } from "@/components/platform/lab-engine/Quiz";
 import { Confetti } from "@/components/platform/lab-engine/Confetti";
 import { PBadgePill, PButton, PCard } from "@/components/platform/ui";
@@ -142,8 +142,8 @@ export function LabEngine({
         onComplete={handleInteractionComplete}
       />
     ),
-    "memory-flip": (
-      <MemoryFlip
+    "tap-sequence": (
+      <TapSequence
         lab={lab}
         onProgress={(d, t) => {
           setDone(d);
@@ -152,8 +152,8 @@ export function LabEngine({
         onComplete={handleInteractionComplete}
       />
     ),
-    "tap-sequence": (
-      <TapSequence
+    "story-mode": (
+      <StoryReader
         lab={lab}
         onProgress={(d, t) => {
           setDone(d);

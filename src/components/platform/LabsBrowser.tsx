@@ -16,8 +16,8 @@ const interactionEmoji: Record<string, string> = {
   "drag-to-label": "🏷️",
   "drag-to-sort": "🗂️",
   "click-match": "👆",
-  "memory-flip": "🃏",
   "tap-sequence": "🔢",
+  "story-mode": "📖",
 };
 
 export function LabsBrowser() {

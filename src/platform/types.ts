@@ -78,13 +78,37 @@ export type InteractionType =
   // Click/tap-based alternatives to the drag interactions above — same
   // content shape (correctCombos / sequence), a completely different feel.
   | "click-match" // click an item, then click its pair — no dragging
-  | "memory-flip" // classic face-down memory/pairs game
-  | "tap-sequence"; // tap cards into order, one at a time
+  | "tap-sequence" // tap cards into order, one at a time
+  // An illustrated, page-by-page retelling of the actual textbook story,
+  // with tap-to-reveal word notes and inline "what happens next?" checks.
+  | "story-mode";
 
 export interface SortBin {
   id: string;
   label: string;
   emoji: string;
+}
+
+// story-mode only: one "page" of the illustrated storybook. `text` is real
+// narrative/dialogue lifted from the textbook. `highlight` (optional) makes
+// one word in the text tappable, revealing `note` as a fun aside — a light,
+// discovery-driven mechanic layered on top of real reading.
+export interface StoryPage {
+  id: string;
+  emoji: string;
+  text: string;
+  speaker?: string; // for dialogue-style pages (play scripts), who's talking
+  highlight?: { word: string; note: string };
+}
+
+// story-mode only: an inline "what do you think happens next?" checkpoint
+// shown after a specific page, before the reader can continue.
+export interface StoryCheckpoint {
+  afterPageIndex: number; // 0-based index into storyPages
+  question: string;
+  options: string[];
+  correctIndex: number;
+  funFact: string; // shown after answering, right or wrong
 }
 
 export interface LabCombo {
@@ -130,6 +154,8 @@ export interface LabContent {
   sequence?: string[]; // drag-to-sequence: correct order of item ids
   countTarget?: number; // drag-to-count: how many to drag in
   bins?: SortBin[]; // drag-to-sort: the category bins items get classified into
+  storyPages?: StoryPage[]; // story-mode: the illustrated storybook pages
+  storyCheckpoints?: StoryCheckpoint[]; // story-mode: inline comprehension checks
   hints: { default: string; onWrong?: string };
   xp: number;
   estMinutes: number;
