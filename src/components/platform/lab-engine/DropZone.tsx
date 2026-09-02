@@ -33,7 +33,7 @@ export function DropZone({
             ? { borderColor: "var(--p-warn)" }
             : {}
       }
-      className={`flex min-h-[6.5rem] flex-col items-center justify-center gap-1 rounded-2xl border-2 border-dashed p-3 text-center transition-colors ${
+      className={`flex min-h-[10rem] flex-col items-center justify-center gap-2 rounded-3xl border-[3px] border-dashed p-4 text-center transition-colors ${
         filled
           ? "border-solid border-[var(--p-success)] bg-[var(--p-success-soft)]"
           : "border-[var(--p-border)] bg-[var(--p-bg-soft)]"
@@ -41,8 +41,8 @@ export function DropZone({
     >
       {children ?? (
         <>
-          {emoji && <span className="text-2xl">{emoji}</span>}
-          {label && <span className="text-xs font-bold text-[var(--p-muted)]">{label}</span>}
+          {emoji && <span className="text-4xl">{emoji}</span>}
+          {label && <span className="text-sm font-bold text-[var(--p-muted)]">{label}</span>}
         </>
       )}
     </motion.div>

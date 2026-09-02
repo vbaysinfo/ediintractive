@@ -74,7 +74,12 @@ export type InteractionType =
   | "drag-to-match"
   | "drag-to-sequence"
   | "drag-to-label"
-  | "drag-to-sort";
+  | "drag-to-sort"
+  // Click/tap-based alternatives to the drag interactions above — same
+  // content shape (correctCombos / sequence), a completely different feel.
+  | "click-match" // click an item, then click its pair — no dragging
+  | "memory-flip" // classic face-down memory/pairs game
+  | "tap-sequence"; // tap cards into order, one at a time
 
 export interface SortBin {
   id: string;

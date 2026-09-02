@@ -55,10 +55,13 @@ npm run lint    # eslint
 - **Super Admin console** — platform-wide stats, school onboarding form.
 - **The reusable Interactive Lab Engine** (`src/components/platform/
   lab-engine/`) — one engine, driven entirely by the JSON schema in
-  `src/platform/types.ts` (`LabContent`). All 6 interaction types are
-  implemented with real drag gestures (Framer Motion `drag` / `Reorder`),
-  instant visual + audio feedback, unlimited retries, and a completion
-  celebration with confetti, XP and badges:
+  `src/platform/types.ts` (`LabContent`). 9 interaction types are
+  implemented — 6 with real drag gestures (Framer Motion `drag` /
+  `Reorder`) and 3 tap/click-only alternatives for a different, very
+  graphical feel with zero dragging — all with instant visual + audio
+  feedback, unlimited retries, and a completion celebration with
+  confetti, XP and badges. Every visual element (chips, drop zones,
+  cards, bins) is generously sized for a bold, graphical look:
   - **Drag-Mix** — `DragMix.tsx` (Science: acid-base reactions)
   - **Drag-to-Count** — `DragCount.tsx` (Maths: counting into a basket)
   - **Drag-to-Match** — `DragMatch.tsx` (vocabulary/meaning matching, rhyme
@@ -68,6 +71,14 @@ npm run lint    # eslint
   - **Drag-to-Label** — `DragMatch.tsx` in label mode (labeling a diagram)
   - **Drag-to-Sort** — `DragSort.tsx` (classify items into 2+ category
     bins — e.g. sound classification, plant classification)
+  - **Click-Match** — `ClickMatch.tsx` (tap an item, then tap its pair —
+    a no-drag alternative to Drag-to-Match, same data shape)
+  - **Memory-Flip** — `MemoryFlip.tsx` (classic face-down memory/pairs
+    game with a CSS 3D card flip — reuses `correctCombos`, either real
+    item pairs or a word ↔ meaning-clue pair)
+  - **Tap-Sequence** — `TapSequence.tsx` (tap cards into order one at a
+    time, tap the last card to undo — a no-drag alternative to
+    Drag-to-Sequence, same `sequence` data)
 - **Real textbook content** (`src/platform/data/labs-blossoms6-english*.ts`)
   — 20 labs generated from the complete Class 6 "Blossoms - 6" English
   Reader, all 8 units: Clever Tenali Ramakrishna, The Snake Catcher,

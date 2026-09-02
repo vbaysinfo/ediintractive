@@ -49,7 +49,7 @@ export function DragCount({
       <div className="flex flex-col items-center gap-3">
         <div
           ref={(el) => registerZone(BASKET_ID, el)}
-          className="flex min-h-[10rem] w-full max-w-xs flex-wrap content-center items-center justify-center gap-1 rounded-[2rem] border-4 border-dashed border-[var(--p-accent)] bg-[var(--p-accent-soft)] p-4"
+          className="flex min-h-[14rem] w-full max-w-sm flex-wrap content-center items-center justify-center gap-2 rounded-[2.5rem] border-4 border-dashed border-[var(--p-accent)] bg-[var(--p-accent-soft)] p-5"
         >
           <AnimatePresence>
             {dropped.map((id) => (
@@ -57,20 +57,20 @@ export function DragCount({
                 key={id}
                 initial={{ scale: 0, y: -30 }}
                 animate={{ scale: 1, y: 0 }}
-                className="text-3xl"
+                className="text-5xl"
               >
                 {baseItem.emoji}
               </motion.span>
             ))}
           </AnimatePresence>
-          {dropped.length === 0 && <span className="text-4xl opacity-40">{lab.targetEmoji}</span>}
+          {dropped.length === 0 && <span className="text-6xl opacity-40">{lab.targetEmoji}</span>}
         </div>
-        <p className="text-sm font-bold text-[var(--p-ink)]">{lab.targetLabel}</p>
+        <p className="text-base font-bold text-[var(--p-ink)]">{lab.targetLabel}</p>
         <motion.p
           key={dropped.length}
           initial={{ scale: 1.4 }}
           animate={{ scale: 1 }}
-          className="text-4xl font-extrabold text-[var(--p-primary)]"
+          className="text-6xl font-extrabold text-[var(--p-primary)]"
         >
           {dropped.length}
         </motion.p>
@@ -80,12 +80,12 @@ export function DragCount({
         <p className="mb-2 text-xs font-bold uppercase tracking-wide text-[var(--p-muted)]">
           Drag each {baseItem.label.toLowerCase()} into the {lab.targetLabel.toLowerCase()}
         </p>
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-5">
           {remaining.map((poolId) => (
             <DraggableChip
               key={poolId}
               item={baseItem}
-              size="sm"
+              size="md"
               onDrop={(point) => handleDrop(poolId, point)}
             />
           ))}

@@ -16,7 +16,7 @@ export function DraggableChip({
   disabled?: boolean;
   size?: "sm" | "md";
 }) {
-  const dims = size === "sm" ? "h-16 w-16 text-2xl" : "h-20 w-20 text-3xl";
+  const dims = size === "sm" ? "h-24 w-24 text-4xl" : "h-32 w-32 text-5xl";
   return (
     <motion.div
       data-item-id={item.id}
@@ -41,7 +41,7 @@ export function DraggableChip({
       }}
     >
       <span className="drop-shadow">{item.emoji}</span>
-      <span className="mt-0.5 px-1 text-center text-[10px] font-bold leading-tight drop-shadow">
+      <span className="mt-1 px-1.5 text-center text-xs font-bold leading-tight drop-shadow">
         {item.label}
       </span>
     </motion.div>

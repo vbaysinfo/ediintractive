@@ -68,7 +68,7 @@ export function DragMatch({
         <p className="mb-2 text-xs font-bold uppercase tracking-wide text-[var(--p-muted)]">
           {lab.targetLabel}
         </p>
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+        <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
           {lab.correctCombos.map((combo) => {
             const zoneId = combo.combo[1];
             const targetItem = lab.items.find((i) => i.id === combo.combo[0]);
@@ -86,22 +86,22 @@ export function DragMatch({
               >
                 {filledWith ? (
                   <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="flex flex-col items-center px-1">
-                    <span className="text-3xl">{clueEmoji}</span>
-                    <span className="mt-1 text-center text-[10px] font-bold text-[var(--p-success)]">
+                    <span className="text-5xl">{clueEmoji}</span>
+                    <span className="mt-2 text-center text-sm font-bold text-[var(--p-success)]">
                       {targetItem?.label}
                     </span>
                   </motion.div>
                 ) : clueText ? (
-                  <div className="flex flex-col items-center gap-1 px-1 text-center">
-                    <span className="text-xl">{clueEmoji ?? "📖"}</span>
-                    <span className="text-[10px] font-semibold leading-snug text-[var(--p-ink-soft)]">
+                  <div className="flex flex-col items-center gap-2 px-1 text-center">
+                    <span className="text-3xl">{clueEmoji ?? "📖"}</span>
+                    <span className="text-xs font-semibold leading-snug text-[var(--p-ink-soft)]">
                       {clueText}
                     </span>
                   </div>
                 ) : (
                   <div className="flex flex-col items-center opacity-40">
-                    <span className="text-3xl">{clueEmoji}</span>
-                    <span className="mt-1 text-[10px] font-bold text-[var(--p-muted)]">?</span>
+                    <span className="text-5xl">{clueEmoji}</span>
+                    <span className="mt-2 text-sm font-bold text-[var(--p-muted)]">?</span>
                   </div>
                 )}
               </DropZone>
@@ -112,9 +112,9 @@ export function DragMatch({
 
       <div>
         <p className="mb-2 text-xs font-bold uppercase tracking-wide text-[var(--p-muted)]">Drag from here</p>
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-5">
           {availableItems.map((item) => (
-            <DraggableChip key={item.id} item={item} size="sm" onDrop={(point) => handleDrop(item.id, point)} />
+            <DraggableChip key={item.id} item={item} size="md" onDrop={(point) => handleDrop(item.id, point)} />
           ))}
           {availableItems.length === 0 && (
             <p className="text-sm text-[var(--p-muted)]">All matched — nice work! 🎉</p>

@@ -35,3 +35,20 @@ export function pointFromDragEvent(event: MouseEvent | TouchEvent | PointerEvent
   const touch = (event as TouchEvent).changedTouches?.[0];
   return { x: touch?.clientX ?? 0, y: touch?.clientY ?? 0 };
 }
+
+// Deterministic shuffle (seeded by a string, typically the lab id) so
+// server- and client-rendered HTML match on first paint — no Math.random.
+export function seededShuffle<T>(arr: T[], seedStr: string): T[] {
+  let seed = 0;
+  for (let i = 0; i < seedStr.length; i++) seed = (seed * 31 + seedStr.charCodeAt(i)) >>> 0;
+  const rand = () => {
+    seed = (seed * 1664525 + 1013904223) >>> 0;
+    return seed / 4294967296;
+  };
+  const out = [...arr];
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1));
+    [out[i], out[j]] = [out[j], out[i]];
+  }
+  return out;
+}

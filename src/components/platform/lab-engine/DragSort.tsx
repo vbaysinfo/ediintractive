@@ -84,13 +84,13 @@ export function DragSort({
                 registerZone={registerZone}
                 filled={binItems.length > 0}
                 glow={errorBin === bin.id ? "error" : null}
-                className={`min-h-[9rem] flex-col !justify-start p-3 ${errorBin === bin.id ? "p-animate-shake" : ""}`}
+                className={`min-h-[13rem] flex-col !justify-start p-4 ${errorBin === bin.id ? "p-animate-shake" : ""}`}
               >
-                <div className="flex flex-col items-center gap-1">
-                  <span className="text-2xl">{bin.emoji}</span>
-                  <span className="text-center text-xs font-bold text-[var(--p-ink)]">{bin.label}</span>
+                <div className="flex flex-col items-center gap-2">
+                  <span className="text-4xl">{bin.emoji}</span>
+                  <span className="text-center text-base font-bold text-[var(--p-ink)]">{bin.label}</span>
                 </div>
-                <div className="mt-2 flex flex-wrap justify-center gap-1.5">
+                <div className="mt-3 flex flex-wrap justify-center gap-2">
                   <AnimatePresence>
                     {binItems.map((itemId) => {
                       const item = lab.items.find((i) => i.id === itemId);
@@ -100,7 +100,7 @@ export function DragSort({
                           key={itemId}
                           initial={{ scale: 0, y: -10 }}
                           animate={{ scale: 1, y: 0 }}
-                          className="flex items-center gap-1 rounded-full bg-[var(--p-success-soft)] px-2 py-1 text-xs font-bold text-[#166534]"
+                          className="flex items-center gap-1.5 rounded-full bg-[var(--p-success-soft)] px-3 py-1.5 text-sm font-bold text-[#166534]"
                         >
                           {item.emoji} {item.label}
                         </motion.span>
@@ -116,9 +116,9 @@ export function DragSort({
 
       <div>
         <p className="mb-2 text-xs font-bold uppercase tracking-wide text-[var(--p-muted)]">Drag from here</p>
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-5">
           {availableItems.map((item) => (
-            <DraggableChip key={item.id} item={item} size="sm" onDrop={(point) => handleDrop(item.id, point)} />
+            <DraggableChip key={item.id} item={item} size="md" onDrop={(point) => handleDrop(item.id, point)} />
           ))}
           {availableItems.length === 0 && (
             <p className="text-sm text-[var(--p-muted)]">All sorted — nice work! 🎉</p>

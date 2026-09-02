@@ -5,23 +5,7 @@ import { Reorder } from "framer-motion";
 import type { LabContent } from "@/platform/types";
 import { playSound } from "@/platform/lib/sound";
 import { PButton } from "@/components/platform/ui";
-
-// Deterministic shuffle (seeded by lab id) so server- and client-rendered
-// HTML match on first paint — no Math.random() here.
-function seededShuffle<T>(arr: T[], seedStr: string): T[] {
-  let seed = 0;
-  for (let i = 0; i < seedStr.length; i++) seed = (seed * 31 + seedStr.charCodeAt(i)) >>> 0;
-  const rand = () => {
-    seed = (seed * 1664525 + 1013904223) >>> 0;
-    return seed / 4294967296;
-  };
-  const out = [...arr];
-  for (let i = out.length - 1; i > 0; i--) {
-    const j = Math.floor(rand() * (i + 1));
-    [out[i], out[j]] = [out[j], out[i]];
-  }
-  return out;
-}
+import { seededShuffle } from "@/components/platform/lab-engine/dnd";
 
 export function DragSequence({
   lab,
@@ -80,12 +64,12 @@ export function DragSequence({
               onDragStart={() => playSound("pickup")}
               onDragEnd={() => playSound("drop")}
               whileDrag={{ scale: 1.08, zIndex: 10, boxShadow: "0 20px 40px -12px rgba(0,0,0,0.35)" }}
-              className="flex w-32 shrink-0 cursor-grab flex-col items-center gap-2 rounded-2xl border-2 border-white p-4 text-white shadow-lg active:cursor-grabbing"
+              className="flex w-44 shrink-0 cursor-grab flex-col items-center gap-2 rounded-3xl border-2 border-white p-5 text-white shadow-lg active:cursor-grabbing"
               style={{ background: `linear-gradient(145deg, ${item.colorFrom}, ${item.colorTo})`, touchAction: "none" }}
             >
               <span className="text-xs font-black opacity-80">STEP {index + 1}</span>
-              <span className="text-4xl">{item.emoji}</span>
-              <span className="text-center text-sm font-bold">{item.label}</span>
+              <span className="text-6xl">{item.emoji}</span>
+              <span className="text-center text-base font-bold">{item.label}</span>
             </Reorder.Item>
           );
         })}

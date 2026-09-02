@@ -71,12 +71,12 @@ export function DragMix({
       <div className="flex flex-col items-center justify-center gap-4">
         <div
           ref={(el) => registerZone(BEAKER_ID, el)}
-          className={`relative flex h-56 w-44 flex-col items-center justify-end overflow-hidden rounded-b-[2.5rem] rounded-t-xl border-4 border-[var(--p-ink)]/10 bg-white/60 pb-2 ${
+          className={`relative flex h-80 w-64 flex-col items-center justify-end overflow-hidden rounded-b-[3rem] rounded-t-xl border-4 border-[var(--p-ink)]/10 bg-white/60 pb-2 ${
             shake ? "p-animate-shake" : ""
           }`}
         >
-          <span className="absolute top-3 text-4xl">{lab.targetEmoji}</span>
-          <div className="flex w-full flex-1 items-end justify-center gap-2 pb-3">
+          <span className="absolute top-4 text-6xl">{lab.targetEmoji}</span>
+          <div className="flex w-full flex-1 items-end justify-center gap-3 pb-4">
             <AnimatePresence>
               {beaker.map((id) => {
                 const it = lab.items.find((i) => i.id === id)!;
@@ -86,7 +86,7 @@ export function DragMix({
                     initial={{ scale: 0, y: 20 }}
                     animate={{ scale: 1, y: 0 }}
                     exit={{ scale: 0 }}
-                    className="text-3xl"
+                    className="text-5xl"
                   >
                     {it.emoji}
                   </motion.span>
@@ -95,7 +95,7 @@ export function DragMix({
             </AnimatePresence>
           </div>
           <div
-            className="h-8 w-full"
+            className="h-12 w-full"
             style={{
               background:
                 tone === "success"
@@ -114,7 +114,7 @@ export function DragMix({
           key={message}
           initial={{ opacity: 0, y: -6 }}
           animate={{ opacity: 1, y: 0 }}
-          className={`rounded-2xl border p-4 text-sm font-semibold ${
+          className={`rounded-2xl border p-5 text-base font-semibold ${
             tone === "success"
               ? "border-[var(--p-success)] bg-[var(--p-success-soft)] text-[#166534]"
               : tone === "error"

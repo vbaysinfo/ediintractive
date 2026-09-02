@@ -8,6 +8,9 @@ import { DragMatch } from "@/components/platform/lab-engine/DragMatch";
 import { DragCount } from "@/components/platform/lab-engine/DragCount";
 import { DragSequence } from "@/components/platform/lab-engine/DragSequence";
 import { DragSort } from "@/components/platform/lab-engine/DragSort";
+import { ClickMatch } from "@/components/platform/lab-engine/ClickMatch";
+import { MemoryFlip } from "@/components/platform/lab-engine/MemoryFlip";
+import { TapSequence } from "@/components/platform/lab-engine/TapSequence";
 import { Quiz } from "@/components/platform/lab-engine/Quiz";
 import { Confetti } from "@/components/platform/lab-engine/Confetti";
 import { PBadgePill, PButton, PCard } from "@/components/platform/ui";
@@ -121,6 +124,36 @@ export function LabEngine({
     ),
     "drag-to-sort": (
       <DragSort
+        lab={lab}
+        onProgress={(d, t) => {
+          setDone(d);
+          setTotal(t);
+        }}
+        onComplete={handleInteractionComplete}
+      />
+    ),
+    "click-match": (
+      <ClickMatch
+        lab={lab}
+        onProgress={(d, t) => {
+          setDone(d);
+          setTotal(t);
+        }}
+        onComplete={handleInteractionComplete}
+      />
+    ),
+    "memory-flip": (
+      <MemoryFlip
+        lab={lab}
+        onProgress={(d, t) => {
+          setDone(d);
+          setTotal(t);
+        }}
+        onComplete={handleInteractionComplete}
+      />
+    ),
+    "tap-sequence": (
+      <TapSequence
         lab={lab}
         onProgress={(d, t) => {
           setDone(d);
