@@ -23,8 +23,8 @@ function AddSchoolForm({ onDone }: { onDone: () => void }) {
       city: city.trim(),
       board,
       logoEmoji,
-      colorFrom: "#6d5bfa",
-      colorTo: "#14b8a6",
+      colorFrom: "#ff6b4a",
+      colorTo: "#f5a623",
       classesOffered: Array.from({ length: 10 }, (_, i) => i + 1),
       status: "trial",
     });

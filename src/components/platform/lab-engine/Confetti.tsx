@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const COLORS = ["#6d5bfa", "#14b8a6", "#ff9f43", "#ff6b9d", "#22c55e", "#f5b942"];
+const COLORS = ["#ff6b4a", "#e0447e", "#f5a623", "#ff8fab", "#22c55e", "#f5b942"];
 
 export function Confetti({ count = 24 }: { count?: number }) {
   // Randomized exactly once via a lazy initializer (celebration overlays

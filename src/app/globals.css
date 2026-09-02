@@ -11,23 +11,23 @@ html {
    component it was originally built alongside for a low-risk extraction.
    ========================================================================= */
 .platform-theme {
-  --p-bg: #f4f6ff;
-  --p-bg-soft: #eef1ff;
+  --p-bg: #fff7ef;
+  --p-bg-soft: #ffece0;
   --p-surface: #ffffff;
-  --p-ink: #1e2340;
-  --p-ink-soft: #545b7a;
-  --p-muted: #8a90ad;
-  --p-border: #e3e6fb;
+  --p-ink: #2f2013;
+  --p-ink-soft: #6b5645;
+  --p-muted: #a4907e;
+  --p-border: #ffdec4;
 
-  --p-primary: #6d5bfa;
-  --p-primary-dark: #5541e0;
-  --p-primary-soft: #ece9ff;
-  --p-secondary: #14b8a6;
-  --p-secondary-soft: #d9f7f2;
-  --p-accent: #ff9f43;
-  --p-accent-soft: #ffedd8;
-  --p-pink: #ff6b9d;
-  --p-pink-soft: #ffe1ec;
+  --p-primary: #ff6b4a;
+  --p-primary-dark: #e0492b;
+  --p-primary-soft: #ffe1d4;
+  --p-secondary: #e0447e;
+  --p-secondary-soft: #fbdcea;
+  --p-accent: #f5a623;
+  --p-accent-soft: #fef0d6;
+  --p-pink: #ff8fab;
+  --p-pink-soft: #ffe3ec;
 
   --p-success: #22c55e;
   --p-success-soft: #dcfce7;
@@ -37,7 +37,7 @@ html {
   --p-danger-soft: #fee2e2;
 
   --p-radius: 1.25rem;
-  --p-shadow: 0 12px 32px -12px rgba(45, 55, 130, 0.18);
+  --p-shadow: 0 12px 32px -12px rgba(150, 62, 20, 0.18);
 
   background: var(--p-bg);
   color: var(--p-ink);
