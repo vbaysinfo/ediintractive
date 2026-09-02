@@ -78,6 +78,15 @@ npm run lint    # eslint
   sentence order and classification is taken verbatim from the book's own
   Glossary, Reading Comprehension and Vocabulary sections — nothing is
   fabricated.
+- **Real Science content** (`src/platform/data/labs-science6.ts`) — 13
+  labs from the Class 6 State Board Science textbook, Chapters 1-5: The
+  Food We Need, Knowing About Plants, Animals and Their Food, Water, and
+  Materials - Separating Methods. Millet name matching, food-source and
+  food-chain classification, leaf-part labeling, the water cycle, states
+  of matter, and separation methods (winnowing, filtration,
+  crystallization, distillation, sublimation...) — all taken verbatim
+  from the book's own tables and activities. Chapters 6-12 get added the
+  same way as they're provided.
 - **Content Pipeline (PDF → Lab)** — a *simulated* pipeline at
   `/teacher/content-pipeline`: pick a subject/class/topic (a real file
   picker is there for the demo, but the PDF isn't actually parsed), watch
