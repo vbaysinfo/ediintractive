@@ -18,6 +18,7 @@ const interactionEmoji: Record<string, string> = {
   "click-match": "👆",
   "tap-sequence": "🔢",
   "story-mode": "📖",
+  "sim-3d": "🧊",
 };
 
 export function LabsBrowser() {

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import type { LabContent } from "@/platform/types";
 import { DragMix } from "@/components/platform/lab-engine/DragMix";
@@ -18,6 +19,18 @@ import { usePlatform } from "@/platform/store";
 import { playSound } from "@/platform/lib/sound";
 import { getBadge } from "@/platform/data/badges";
 import { useRouter } from "next/navigation";
+
+// Three.js/WebGL only exists in the browser, so this is loaded client-side
+// only — with a lightweight loading placeholder while the 3D engine and
+// scene chunk download.
+const Sim3D = dynamic(() => import("@/components/platform/lab-engine/Sim3D").then((m) => m.Sim3D), {
+  ssr: false,
+  loading: () => (
+    <div className="flex h-[420px] w-full items-center justify-center rounded-[var(--p-radius)] border border-[var(--p-border)] bg-[var(--p-bg-soft)] text-sm font-bold text-[var(--p-muted)] sm:h-[480px]">
+      Loading the 3D lab…
+    </div>
+  ),
+});
 
 type Stage = "lab" | "interaction-done" | "quiz" | "summary";
 
@@ -154,6 +167,16 @@ export function LabEngine({
     ),
     "story-mode": (
       <StoryReader
+        lab={lab}
+        onProgress={(d, t) => {
+          setDone(d);
+          setTotal(t);
+        }}
+        onComplete={handleInteractionComplete}
+      />
+    ),
+    "sim-3d": (
+      <Sim3D
         lab={lab}
         onProgress={(d, t) => {
           setDone(d);

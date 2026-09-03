@@ -81,7 +81,13 @@ export type InteractionType =
   | "tap-sequence" // tap cards into order, one at a time
   // An illustrated, page-by-page retelling of the actual textbook story,
   // with tap-to-reveal word notes and inline "what happens next?" checks.
-  | "story-mode";
+  | "story-mode"
+  // A real, orbit-controllable 3D scene (Three.js / react-three-fiber) —
+  // drag to rotate, scroll to zoom, tap glowing hotspots on the model to
+  // reveal real textbook facts. Some scenes are live simulations (a
+  // working circuit you can switch on, joints that move the way the real
+  // joint does) rather than a static model.
+  | "sim-3d";
 
 export interface SortBin {
   id: string;
@@ -109,6 +115,21 @@ export interface StoryCheckpoint {
   options: string[];
   correctIndex: number;
   funFact: string; // shown after answering, right or wrong
+}
+
+// sim-3d only: which procedural 3D scene to render. Each scene is
+// hand-built from primitive geometry (no external model files) and knows
+// its own hotspot positions in 3D space — the `id` here just has to match
+// the `id` on one of the scene's built-in hotspot meshes.
+export type Sim3DTopic = "plant" | "water-cycle" | "circuit" | "joints";
+
+// sim-3d only: the real fact revealed when a student taps a glowing
+// hotspot on the 3D model. Positions live in code (they're tied to each
+// scene's geometry); only the label/fact text is authored as content.
+export interface Sim3DHotspot {
+  id: string;
+  label: string;
+  fact: string;
 }
 
 export interface LabCombo {
@@ -156,6 +177,8 @@ export interface LabContent {
   bins?: SortBin[]; // drag-to-sort: the category bins items get classified into
   storyPages?: StoryPage[]; // story-mode: the illustrated storybook pages
   storyCheckpoints?: StoryCheckpoint[]; // story-mode: inline comprehension checks
+  sim3dTopic?: Sim3DTopic; // sim-3d: which procedural scene to render
+  sim3dHotspots?: Sim3DHotspot[]; // sim-3d: real facts behind each hotspot
   hints: { default: string; onWrong?: string };
   xp: number;
   estMinutes: number;

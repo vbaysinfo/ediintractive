@@ -6,8 +6,8 @@ Maths, English, Telugu and Social Studies, built around one reusable
 **Interactive Lab Engine** that renders every chapter's hands-on activity
 from a single JSON schema — no custom UI per topic.
 
-Built with Next.js 16 (App Router), TypeScript, Tailwind CSS v4 and
-Framer Motion.
+Built with Next.js 16 (App Router), TypeScript, Tailwind CSS v4,
+Framer Motion and Three.js (`@react-three/fiber`).
 
 ## Try it
 
@@ -55,13 +55,13 @@ npm run lint    # eslint
 - **Super Admin console** — platform-wide stats, school onboarding form.
 - **The reusable Interactive Lab Engine** (`src/components/platform/
   lab-engine/`) — one engine, driven entirely by the JSON schema in
-  `src/platform/types.ts` (`LabContent`). 9 interaction types are
+  `src/platform/types.ts` (`LabContent`). 10 interaction types are
   implemented — 6 with real drag gestures (Framer Motion `drag` /
-  `Reorder`) and 3 tap/click-only alternatives for a different, very
-  graphical feel with zero dragging — all with instant visual + audio
-  feedback, unlimited retries, and a completion celebration with
-  confetti, XP and badges. Every visual element (chips, drop zones,
-  cards, bins) is generously sized for a bold, graphical look:
+  `Reorder`), 3 tap/click-only alternatives for a different, very
+  graphical feel with zero dragging, and one real 3D engine — all with
+  instant visual + audio feedback, unlimited retries, and a completion
+  celebration with confetti, XP and badges. Every visual element (chips,
+  drop zones, cards, bins) is generously sized for a bold, graphical look:
   - **Drag-Mix** — `DragMix.tsx` (Science: acid-base reactions)
   - **Drag-to-Count** — `DragCount.tsx` (Maths: counting into a basket)
   - **Drag-to-Match** — `DragMatch.tsx` (vocabulary/meaning matching, rhyme
@@ -80,6 +80,21 @@ npm run lint    # eslint
     retelling of the real chapter story, with a tap-to-reveal word note
     on each page and inline "what happens next?" checkpoints, ending in
     the chapter's own reading-comprehension quiz)
+  - **3D Simulation** — `Sim3D.tsx` (`lab-engine/sim3d/*.tsx`) — a real,
+    orbit-controllable Three.js scene (`three` / `@react-three/fiber` /
+    `@react-three/drei`, loaded client-side only via `next/dynamic`).
+    Drag to rotate, scroll to zoom, tap a glowing hotspot to reveal a
+    real textbook fact. Every scene is built from plain primitive
+    geometry — no downloaded 3D models — and two of them are live
+    simulations, not just static models: the circuit's switch actually
+    opens/closes the loop and the bulb visibly lights or dims, and each
+    skeletal joint plays a short demo of its own real range of motion
+    (ball & socket wobbles freely, a hinge swings one way like a door,
+    a pivot spins, a sliding joint glides) when tapped. Four scenes:
+    `PlantScene.tsx` (Ch. 2 plant parts), `WaterCycleScene.tsx` (Ch. 4,
+    a continuously-animated evaporation → condensation → precipitation
+    → collection loop), `CircuitScene.tsx` (Ch. 10, the working switch),
+    `JointsScene.tsx` (Ch. 12, the five joint types)
 - **Real textbook content** (`src/platform/data/labs-blossoms6-english*.ts`,
   `labs-blossoms6-stories.ts`) — 28 labs generated from the complete
   Class 6 "Blossoms - 6" English Reader, all 8 units: Clever Tenali
@@ -93,21 +108,24 @@ npm run lint    # eslint
   from the book's own story text, Glossary, Reading Comprehension and
   Vocabulary sections — nothing is
   fabricated.
-- **Real Science content** (`src/platform/data/labs-science6*.ts`) — the
-  **complete Class 6 State Board Science textbook, all 12 chapters**, 30
-  labs total: The Food We Need, Knowing About Plants, Animals and Their
-  Food, Water, Materials - Separating Methods, Fun with Magnets, Let us
-  Measure, How Fabrics are Made, Organisms and Habitat, Basic Electric
-  Circuits, Shadows - Images, and Movement and Locomotion. Millet name
-  matching, food-source and food-chain classification, leaf-part
-  labeling, the water cycle, states of matter, separation methods
-  (winnowing, filtration, crystallization, distillation, sublimation),
-  magnetic/non-magnetic sorting, unit-symbol matching, natural/artificial
-  fibre sorting, the cotton-to-fabric sequence, biotic/abiotic and
-  aquatic/terrestrial classification, pond-habitat matching,
-  conductor/insulator sorting, opaque/transparent/translucent
-  classification, joint-type matching, and limbs/no-limbs locomotion
-  sorting — all taken verbatim from the book's own tables and activities.
+- **Real Science content** (`src/platform/data/labs-science6*.ts`,
+  `labs-science6-3dsims.ts`) — the **complete Class 6 State Board Science
+  textbook, all 12 chapters**, 34 labs total: The Food We Need, Knowing
+  About Plants, Animals and Their Food, Water, Materials - Separating
+  Methods, Fun with Magnets, Let us Measure, How Fabrics are Made,
+  Organisms and Habitat, Basic Electric Circuits, Shadows - Images, and
+  Movement and Locomotion. Millet name matching, food-source and
+  food-chain classification, leaf-part labeling, the water cycle, states
+  of matter, separation methods (winnowing, filtration, crystallization,
+  distillation, sublimation), magnetic/non-magnetic sorting, unit-symbol
+  matching, natural/artificial fibre sorting, the cotton-to-fabric
+  sequence, biotic/abiotic and aquatic/terrestrial classification,
+  pond-habitat matching, conductor/insulator sorting,
+  opaque/transparent/translucent classification, joint-type matching,
+  and limbs/no-limbs locomotion sorting — all taken verbatim from the
+  book's own tables and activities — plus 4 **3D Simulation** labs
+  (plant parts, the water cycle, a working circuit, and joints in
+  motion) built from those same real facts.
 - **Content Pipeline (PDF → Lab)** — a *simulated* pipeline at
   `/teacher/content-pipeline`: pick a subject/class/topic (a real file
   picker is there for the demo, but the PDF isn't actually parsed), watch
@@ -173,4 +191,5 @@ src/app/                 Routes (thin — pages compose the above)
 - [Next.js 16](https://nextjs.org) (App Router, TypeScript)
 - [Tailwind CSS v4](https://tailwindcss.com)
 - [Framer Motion](https://www.framer.com/motion/) for drag gestures & animation
+- [Three.js](https://threejs.org) via [@react-three/fiber](https://r3f.docs.pmnd.rs) & [@react-three/drei](https://github.com/pmndrs/drei) for the 3D Simulation labs
 - [lucide-react](https://lucide.dev) for iconography
