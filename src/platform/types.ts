@@ -121,7 +121,7 @@ export interface StoryCheckpoint {
 // hand-built from primitive geometry (no external model files) and knows
 // its own hotspot positions in 3D space — the `id` here just has to match
 // the `id` on one of the scene's built-in hotspot meshes.
-export type Sim3DTopic = "plant" | "water-cycle" | "circuit" | "joints";
+export type Sim3DTopic = "plant" | "water-cycle" | "circuit" | "joints" | "magnets" | "shadows";
 
 // sim-3d only: the real fact revealed when a student taps a glowing
 // hotspot on the 3D model. Positions live in code (they're tied to each

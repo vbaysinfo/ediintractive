@@ -9,6 +9,8 @@ import { PlantScene } from "@/components/platform/lab-engine/sim3d/PlantScene";
 import { WaterCycleScene } from "@/components/platform/lab-engine/sim3d/WaterCycleScene";
 import { CircuitScene } from "@/components/platform/lab-engine/sim3d/CircuitScene";
 import { JointsScene } from "@/components/platform/lab-engine/sim3d/JointsScene";
+import { MagnetScene } from "@/components/platform/lab-engine/sim3d/MagnetScene";
+import { ShadowScene } from "@/components/platform/lab-engine/sim3d/ShadowScene";
 import { playSound } from "@/platform/lib/sound";
 
 // A real, orbit-controllable 3D lab — drag to rotate, scroll/pinch to
@@ -65,6 +67,10 @@ export function Sim3D({
         return <CircuitScene found={found} onHotspotClick={handleHotspotClick} />;
       case "joints":
         return <JointsScene found={found} onHotspotClick={handleHotspotClick} />;
+      case "magnets":
+        return <MagnetScene found={found} onHotspotClick={handleHotspotClick} />;
+      case "shadows":
+        return <ShadowScene found={found} onHotspotClick={handleHotspotClick} />;
       default:
         return null;
     }

@@ -85,16 +85,22 @@ npm run lint    # eslint
     `@react-three/drei`, loaded client-side only via `next/dynamic`).
     Drag to rotate, scroll to zoom, tap a glowing hotspot to reveal a
     real textbook fact. Every scene is built from plain primitive
-    geometry — no downloaded 3D models — and two of them are live
-    simulations, not just static models: the circuit's switch actually
-    opens/closes the loop and the bulb visibly lights or dims, and each
-    skeletal joint plays a short demo of its own real range of motion
-    (ball & socket wobbles freely, a hinge swings one way like a door,
-    a pivot spins, a sliding joint glides) when tapped. Four scenes:
+    geometry — no downloaded 3D models — and most are live simulations,
+    not just static models: the circuit's switch actually opens/closes
+    the loop and the bulb visibly lights or dims, each skeletal joint
+    plays a short demo of its own real range of motion (ball & socket
+    wobbles freely, a hinge swings one way like a door, a pivot spins, a
+    sliding joint glides) when tapped, a bar magnet actually slides
+    together or pushes apart depending which poles face each other, and
+    the shadow scene uses a real WebGL shadow map — an actual light
+    casting an actual shadow, not a drawn-on graphic. Six scenes:
     `PlantScene.tsx` (Ch. 2 plant parts), `WaterCycleScene.tsx` (Ch. 4,
     a continuously-animated evaporation → condensation → precipitation
-    → collection loop), `CircuitScene.tsx` (Ch. 10, the working switch),
-    `JointsScene.tsx` (Ch. 12, the five joint types)
+    → collection loop), `MagnetScene.tsx` (Ch. 6, attract/repel + a
+    magnetic nail vs. a non-magnetic wood chip), `CircuitScene.tsx`
+    (Ch. 10, the working switch), `ShadowScene.tsx` (Ch. 11, a movable
+    light casting real shadows through opaque/transparent/translucent
+    objects), `JointsScene.tsx` (Ch. 12, the five joint types)
 - **Real textbook content** (`src/platform/data/labs-blossoms6-english*.ts`,
   `labs-blossoms6-stories.ts`) — 28 labs generated from the complete
   Class 6 "Blossoms - 6" English Reader, all 8 units: Clever Tenali
@@ -110,7 +116,7 @@ npm run lint    # eslint
   fabricated.
 - **Real Science content** (`src/platform/data/labs-science6*.ts`,
   `labs-science6-3dsims.ts`) — the **complete Class 6 State Board Science
-  textbook, all 12 chapters**, 34 labs total: The Food We Need, Knowing
+  textbook, all 12 chapters**, 36 labs total: The Food We Need, Knowing
   About Plants, Animals and Their Food, Water, Materials - Separating
   Methods, Fun with Magnets, Let us Measure, How Fabrics are Made,
   Organisms and Habitat, Basic Electric Circuits, Shadows - Images, and
@@ -123,9 +129,10 @@ npm run lint    # eslint
   pond-habitat matching, conductor/insulator sorting,
   opaque/transparent/translucent classification, joint-type matching,
   and limbs/no-limbs locomotion sorting — all taken verbatim from the
-  book's own tables and activities — plus 4 **3D Simulation** labs
-  (plant parts, the water cycle, a working circuit, and joints in
-  motion) built from those same real facts.
+  book's own tables and activities — plus 6 **3D Simulation** labs
+  (plant parts, the water cycle, attract/repel magnets, a working
+  circuit, real shadows, and joints in motion) built from those same
+  real facts.
 - **Content Pipeline (PDF → Lab)** — a *simulated* pipeline at
   `/teacher/content-pipeline`: pick a subject/class/topic (a real file
   picker is there for the demo, but the PDF isn't actually parsed), watch
